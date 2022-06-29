@@ -42,7 +42,7 @@ class Save {
     }
 
     public static download() {
-        const backupSaveData = {player, save: this.getSaveObject(), settings: Settings.toJSON()};
+        const backupSaveData = { player, save: this.getSaveObject(), settings: Settings.toJSON() };
         try {
             const element = document.createElement('a');
             element.setAttribute('href', `data:text/plain;charset=utf-8,${encodeURIComponent(btoa(JSON.stringify(backupSaveData)))}`);
@@ -68,12 +68,12 @@ class Save {
             });
             try {
                 localStorage.backupSave = JSON.stringify(backupSaveData);
-            } catch (e) {}
+            } catch (e) { }
         }
     }
 
     public static copySaveToClipboard() {
-        const backupSaveData = {player, save: this.getSaveObject(), settings: Settings.toJSON()};
+        const backupSaveData = { player, save: this.getSaveObject(), settings: Settings.toJSON() };
         navigator.clipboard.writeText(btoa(JSON.stringify(backupSaveData)));
         Notifier.notify({
             title: 'Save copied',
@@ -95,7 +95,7 @@ class Save {
             localStorage.removeItem(`save${Save.key}`);
             localStorage.removeItem(`settings${Save.key}`);
             // Prevent the old save from being saved again
-            window.onbeforeunload = () => {};
+            window.onbeforeunload = () => { };
             location.reload();
         }
     }
@@ -198,7 +198,7 @@ class Save {
                         localStorage.removeItem(`settings${Save.key}`);
                     }
                     // Prevent the old save from being saved again
-                    window.onbeforeunload = () => {};
+                    window.onbeforeunload = () => { };
                     location.reload();
                 } else {
                     Notifier.notify({

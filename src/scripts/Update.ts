@@ -31,8 +31,8 @@ class Update implements Saveable {
                 ...saveData.statistics,
                 clickAttacks: saveData.statistics.clicks || 0,
                 totalDungeonTokens: saveData.statistics.totalTokens || 0,
-                undergroundItemsFound:  saveData.statistics.digItems || 0,
-                undergroundLayersMined:  saveData.statistics.digDeeper || 0,
+                undergroundItemsFound: saveData.statistics.digItems || 0,
+                undergroundLayersMined: saveData.statistics.digDeeper || 0,
             };
         },
 
@@ -59,7 +59,7 @@ class Update implements Saveable {
                 xp: Math.floor(playerData._questXP || 0),
                 refreshes: playerData.questRefreshes || 0,
                 lastRefresh: playerData._lastSeen,
-                questList: new Array(10).fill({}).map((q,index) => ({ index, initial: null })),
+                questList: new Array(10).fill({}).map((q, index) => ({ index, initial: null })),
                 questLines: [
                     {
                         state: playerData.tutorialComplete ? 2 : 1,
@@ -85,7 +85,7 @@ class Update implements Saveable {
             saveData.badgeCase = saveData.badgeCase || [];
             // Not using game constants incase the value isn't 39 in the future
             if (saveData.badgeCase[39]) {
-                saveData.quests.questLines.push({state: 1, name: 'Mystery of Deoxys', quest: 0});
+                saveData.quests.questLines.push({ state: 1, name: 'Mystery of Deoxys', quest: 0 });
             }
         },
 
@@ -112,7 +112,7 @@ class Update implements Saveable {
             // If the player has the Soul Badge already
             // Not using game constants incase the badge value isn't 5 in the future
             if (saveData.badgeCase[5]) {
-                saveData.quests.questLines.push({state: 1, name: 'Mining Expedition', quest: 0});
+                saveData.quests.questLines.push({ state: 1, name: 'Mining Expedition', quest: 0 });
             }
         },
 
@@ -422,7 +422,7 @@ class Update implements Saveable {
             saveData.badgeCase = saveData.badgeCase || [];
             // Not using game constants incase the value isn't 73 in the future
             if (saveData.badgeCase[73]) { // Iceberg badge
-                saveData.quests.questLines.push({state: 1, name: 'The Great Vivillon Hunt!', quest: 0});
+                saveData.quests.questLines.push({ state: 1, name: 'The Great Vivillon Hunt!', quest: 0 });
             }
 
             // Add missing key items if the player has the badge
@@ -523,7 +523,7 @@ class Update implements Saveable {
             // If the player has the Fog Badge already
             // Not using game constants incase the badge value isn't 17 in the future
             if (saveData.badgeCase[17]) {
-                saveData.quests.questLines.push({state: 1, name: 'Team Rocket Again', quest: 0});
+                saveData.quests.questLines.push({ state: 1, name: 'Team Rocket Again', quest: 0 });
             }
 
             setTimeout(async () => {
@@ -540,7 +540,7 @@ class Update implements Saveable {
         '0.8.14': ({ playerData, saveData }) => {
             // Start Aqua Magma questline if player has Dynamo Badge already
             if (saveData.badgeCase[29]) {
-                saveData.quests.questLines.push({state: 1, name: 'Land vs. Water', quest: 0});
+                saveData.quests.questLines.push({ state: 1, name: 'Land vs. Water', quest: 0 });
             }
 
             // Just incase statistics is not set
@@ -551,7 +551,7 @@ class Update implements Saveable {
                 ...saveData.statistics,
                 totalBerriesObtained: saveData.statistics.totalBerriesHarvested || 0,
                 pokeballsObtained: saveData.statistics.pokeballsBought || 0,
-                berriesObtained:  saveData.statistics.berriesHarvested || 0,
+                berriesObtained: saveData.statistics.berriesHarvested || 0,
 
             };
         },
@@ -559,7 +559,7 @@ class Update implements Saveable {
         '0.8.15': ({ playerData, saveData }) => {
             // Start Plasma questline if player has Jet Badge already
             if (saveData.badgeCase[58]) {
-                saveData.quests.questLines.push({state: 1, name: 'Quest for the DNA Splicers', quest: 0});
+                saveData.quests.questLines.push({ state: 1, name: 'Quest for the DNA Splicers', quest: 0 });
             }
             saveData.statistics.dungeonsCleared = Update.moveIndex(saveData.statistics.dungeonsCleared, 2, 1); // Digletts Cave
             saveData.statistics.dungeonsCleared = Update.moveIndex(saveData.statistics.dungeonsCleared, 5, 4); // Power Plant
@@ -672,7 +672,7 @@ class Update implements Saveable {
 
             // Start Galactic questline if player has Coal Badge already
             if (saveData.badgeCase[40]) {
-                saveData.quests.questLines.push({state: 1, name: 'A new world', quest: 0});
+                saveData.quests.questLines.push({ state: 1, name: 'A new world', quest: 0 });
             }
 
             // Clear Valley Windworks Clears
@@ -732,7 +732,7 @@ class Update implements Saveable {
             };
             // Start Mina's Trial questline if player has cleared Ultra Necrozma already
             if (saveData.statistics.temporaryBattleDefeated[1]) {
-                saveData.quests.questLines.push({state: 1, name: 'Mina\'s Trial', quest: 0});
+                saveData.quests.questLines.push({ state: 1, name: 'Mina\'s Trial', quest: 0 });
             }
 
             // Add Rocket Game Corner
@@ -741,7 +741,7 @@ class Update implements Saveable {
             saveData.statistics.dungeonsCleared = Update.moveIndex(saveData.statistics.dungeonsCleared, 6);
             // Start Team Rocket Kanto questline if player has Cascade Badge already
             if (saveData.badgeCase[2]) {
-                saveData.quests.questLines.push({state: 1, name: 'Team Rocket', quest: 0});
+                saveData.quests.questLines.push({ state: 1, name: 'Team Rocket', quest: 0 });
             }
 
             // Rename Land vs. Water questline, so QuestLineCompletedRequirement will work
@@ -769,6 +769,47 @@ class Update implements Saveable {
                 // Check if player wants to activate the new challenge modes
                 if (!await Notifier.confirm({ title: 'Slow EVs', message: 'New challenge mode added: Slow EVs.\n\nDiminishes the rate at which EVs are gained.\n\nThis is an optional challenge and is NOT the recommended way to play.\n\nPlease choose if you would like this challenge mode to be disabled or enabled.\n\nCan be disabled later. Can NOT be enabled later!', confirm: 'Disable', cancel: 'Enable' })) {
                     App.game.challenges.list.slowEVs.activate();
+                }
+            }, GameConstants.SECOND);
+        },
+
+        '0.9.7': ({ playerData, saveData }) => {
+            const regionRoutes = {
+                kanto: [1, 25],
+                johto: [26, 48],
+                hoenn: [101, 134],
+                sinnoh: [201, 230],
+            };
+            const result = saveData.statistics.shinybyroad.reduce((acc, nextValue, nextIndex) => {
+                const [region] = Object.entries(regionRoutes).find(([, check]) => (
+                    // Find the region that contains this index
+                    check[0] <= nextIndex && nextIndex <= check[1]
+                )) || ['none'];
+                // Skip over any statistics for the 'none' region that are also 0, since
+                // these are just the gaps in the route numbers
+                if (region === 'none' && nextValue === 0) {
+                    return acc;
+                }
+
+                // Ensure the region has been prepared
+                acc[region] = (acc[region] || {});
+                // Track the route with its number in the statistics
+                acc[region][nextIndex] = nextValue;
+                return acc;
+            }, {});
+            saveData.statistics.shinybyroad = result;
+
+            saveData._route = 1;
+            saveData._region = GameConstants.Region.kanto;
+
+            delete saveData._route;
+            delete saveData._region;
+            delete saveData._subregion;
+            delete saveData._town;
+            setTimeout(async () => {
+                // Check if player wants to activate the new challenge modes
+                if (!await Notifier.confirm({ title: 'Te', message: 'hfjdsklq', confirm: 'enable', cancel: 'disable' })) {
+                    App.game.challenges.list.sqrChallenge.disable();
                 }
             }, GameConstants.SECOND);
         },
@@ -870,7 +911,6 @@ class Update implements Saveable {
                 timeout: GameConstants.DAY,
             });
             throw new Error(`Save is newer than game version\nSave version: ${this.saveVersion}\nGame version: ${this.version}`);
-            return;
         }
 
         const [backupButton, backupSaveData] = this.getBackupButton();
@@ -898,7 +938,7 @@ class Update implements Saveable {
                 } catch (e) {
                     try {
                         localStorage.backupSave = backupSaveData;
-                    } catch (e) {}
+                    } catch (e) { }
 
                     const resetButton = document.createElement('a');
                     resetButton.className = 'btn btn-block btn-danger';
@@ -957,7 +997,7 @@ class Update implements Saveable {
             });
             try {
                 localStorage.backupSave = backupSaveData;
-            } catch (e) {}
+            } catch (e) { }
             throw err;
         }
 

@@ -138,6 +138,7 @@ export enum AchievementType {
     'Quest',
     'Battle Frontier',
     'Protein',
+    'Shiny Quest',
 }
 
 export enum DungeonTile {
