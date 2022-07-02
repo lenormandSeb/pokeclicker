@@ -7,6 +7,7 @@ enum MultiplierType {
     shiny,
     eggStep,
     roaming,
+    fishingStep,
 }
 
 export default MultiplierType;

@@ -38,3 +38,4 @@ ItemList.Squirtbottle = new BuyOakItem(OakItemType.Squirtbottle, 5000, Currency.
 ItemList.Sprinklotad = new BuyOakItem(OakItemType.Sprinklotad, 10000, Currency.farmPoint);
 ItemList.Explosive_Charge = new BuyOakItem(OakItemType.Explosive_Charge, 5000, Currency.questPoint);
 ItemList.Treasure_Scanner = new BuyOakItem(OakItemType.Treasure_Scanner, 10000, Currency.questPoint);
+ItemList.Fishing_Rod = new BuyOakItem(OakItemType.Fishing_Rod, 2, Currency.questPoint);

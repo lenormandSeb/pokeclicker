@@ -32,6 +32,7 @@ class Game {
         public gems: Gems,
         public underground: Underground,
         public farming: Farming,
+        public fishing: Fishing,
         public logbook: LogBook,
         public redeemableCodes: RedeemableCodes,
         public statistics: Statistics,
@@ -66,6 +67,7 @@ class Game {
     initialize() {
         AchievementHandler.initialize(this.multiplier, this.challenges);
         FarmController.initialize();
+        FishingController.iniatilize();
         EffectEngineRunner.initialize(this.multiplier);
         FluteEffectRunner.initialize(this.multiplier);
         ItemHandler.initilizeEvoStones();
@@ -76,6 +78,7 @@ class Game {
         this.oakItems.initialize();
         this.underground.initialize();
         this.farming.initialize();
+        this.fishing.initialize();
         this.specialEvents.initialize();
         this.load();
 

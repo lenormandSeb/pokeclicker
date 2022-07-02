@@ -11,6 +11,7 @@ enum OakItemType {
     'Sprinklotad',
     'Explosive_Charge',
     'Treasure_Scanner',
+    'Fishing_Rod',
 }
 
 export default OakItemType;

@@ -12,6 +12,7 @@ import AuraType from './enums/AuraType';
 import BadgeEnums from './enums/Badges';
 import BerryColor from './enums/BerryColor';
 import BerryType from './enums/BerryType';
+import FishingPokemons from './enums/FishingPokemons';
 import PokemonType from './enums/PokemonType';
 import CaughtStatus from './enums/CaughtStatus';
 import EvolutionType from './enums/EvolutionType';
@@ -130,6 +131,7 @@ Object.assign(<any>window, {
     BadgeEnums,
     BerryColor,
     BerryType,
+    FishingPokemons,
     PokemonType,
     CaughtStatus,
     EvolutionType,
