@@ -38,6 +38,7 @@ type TmpGameType = {
     gems: any,
     underground: any,
     farming: any,
+    fishing: any,
     logbook: LogBook,
     redeemableCodes: any,
     statistics: Statistics,

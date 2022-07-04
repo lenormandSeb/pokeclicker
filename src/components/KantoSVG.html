@@ -616,6 +616,22 @@
      %>
 
     <%- include('templates/mapPOI',
+        { name: "Fishing Spot"
+        , x: 90, y: 30
+        , width: 3, height: 4
+        , databind: "click:function(){App.game.fishing.openFishingSpotModal(12, GameConstants.Region.kanto)}, attr: { class: App.game.fishing.canAccess() ? 'completed' : 'locked' }"
+        })
+     %>
+
+     <%- include('templates/mapPOI',
+        { name: "Fishing Spot"
+        , x: 90, y: 40
+        , width: 3, height: 4
+        , databind: "click:function(){App.game.fishing.openFishingSpotModal(15, GameConstants.Region.kanto)}, attr: { class: App.game.fishing.canAccess() ? 'completed' : 'locked' }"
+        })
+     %>
+
+    <%- include('templates/mapPOI',
         { name: "Farm"
         , x: 72, y: 40
         , width: 3, height: 3

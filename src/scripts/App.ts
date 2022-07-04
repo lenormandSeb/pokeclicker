@@ -35,6 +35,7 @@ class App {
                 new Gems(),
                 new Underground(),
                 new Farming(multiplier),
+                new Fishing(),
                 new LogBook(),
                 new RedeemableCodes(),
                 new Statistics(),

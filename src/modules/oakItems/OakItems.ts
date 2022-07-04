@@ -57,6 +57,8 @@ export default class OakItems implements Feature {
                 true, [2, 4, 7, 11, 15, 20], 1, 50, undefined, undefined, AmountFactory.createArray([50000, 100000, 400000, 1000000, 2000000], Currency.money)),
             new BoughtOakItem(OakItemType.Treasure_Scanner, 'Treasure Scanner', 'Chance to multiply mining rewards', 'Cinnabar Island Shop',
                 true, [4, 8, 12, 16, 20, 24], 1, 25, undefined, undefined, AmountFactory.createArray([50000, 100000, 250000, 500000, 1000000], Currency.money), '%'),
+            new BoughtOakItem(OakItemType.Fishing_Rod, 'Fishing Rod', 'Fish Pokemon', 'NPC',
+                true, [4, 8, 12, 16, 20, 24], 1, 25, undefined, undefined, AmountFactory.createArray([50000, 100000, 250000, 500000, 1000000], Currency.money), '%'),
         ];
 
         this.addMultiplier('clickAttack', OakItemType.Rocky_Helmet);
@@ -64,6 +66,7 @@ export default class OakItems implements Feature {
         this.addMultiplier('money', OakItemType.Amulet_Coin);
         this.addMultiplier('shiny', OakItemType.Shiny_Charm);
         this.addMultiplier('eggStep', OakItemType.Blaze_Cassette);
+        this.addMultiplier('fishingStep', OakItemType.Fishing_Rod);
 
         this.itemList.forEach((i) => i.levelKO.subscribe(() => this.maxLevelOakItems(this.itemList.filter((i2) => i2.isMaxLevel()).length)));
     }

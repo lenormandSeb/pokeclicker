@@ -15,6 +15,7 @@ enum KeyItemType {
     'Gem_case',
     'DNA_splicers',
     'Pokerus_virus',
+    'Fishing_Rod',
 }
 
 export default KeyItemType;

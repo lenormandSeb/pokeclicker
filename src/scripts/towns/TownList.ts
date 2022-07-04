@@ -72,6 +72,7 @@ const VermilionCityShop = new Shop([
     ItemList.Lucky_egg,
     ItemList.Electric_egg,
     ItemList.Thunder_stone,
+    ItemList.Fishing_Rod,
 ]);
 const LavenderTownShop = new Shop([
     ItemList.Pokeball,
@@ -177,6 +178,10 @@ const VermilionFanClubChairman = new NPC('Fan Club Chairman', [
     'You won’t find a Pokémon as wonderful as my favorite Rapidash in those Typed Eggs in the shops, but they might hatch rare Pokémon you can’t find anywhere else!',
 ]);
 
+const MasterFisherman = new NPC('Master Fisherman', [
+    'Insert text here',
+]);
+
 const LavenderMrFuji = new NPC('Mr. Fuji', [
     'Welcome. In our Volunteer House here we take in all kinds of Pokémon to care for them.',
     'Did you know that sparkling Pokémon are more often found in Dungeons, on Farms, from Eggs, and even from Shops, the Safari Zone, and Evolutions from Items?',
@@ -269,7 +274,7 @@ TownList['Vermilion City'] = new Town(
     [VermilionCityShop],
     {
         requirements: [new RouteKillRequirement(10, GameConstants.Region.kanto, 6)],
-        npcs: [VermilionFanClubChairman],
+        npcs: [VermilionFanClubChairman, MasterFisherman],
     }
 );
 TownList['Lavender Town'] = new Town(
