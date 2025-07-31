@@ -44,17 +44,21 @@ class QuestLineHelper {
     /* Kanto QuestLines */
 
     public static createTutorial() {
-        const tutorial = new QuestLine('Tutorial Quests', 'A short set of quests to get you going.');
+        const tutorial = new QuestLine('Tutorial Quests', 'A short set of quests to get you going.').withStartRegion(2);
 
         // Defeat Starter
         const defeatStarter = new CustomQuest(1, 10,
             'Defeat the Pokémon. Click to deal damage!',
             () => App.game.statistics.totalPokemonDefeated()
-        ).withInitialValue(0); // Initial of 0 so it auto completes if bugged
+        ).withInitialValue(0) // Initial of 0 so it auto completes if bugged
+        .withInitialRegion(2);
         tutorial.addQuest(defeatStarter);
 
         // Capture 1 pokemon
-        const captureOne = new CapturePokemonsQuest(1, 20).withDescription('Capture 1 Pokémon. When you defeat a Pokémon, a Poké Ball is thrown and you have a chance to capture it.').withInitialValue(1); // Initial of 1 so it auto completes if bugged
+        const captureOne = new CapturePokemonsQuest(1, 20)
+            .withDescription('Capture 1 Pokémon. When you defeat a Pokémon, a Poké Ball is thrown and you have a chance to capture it.')
+            .withInitialValue(1) // Initial of 1 so it auto completes if bugged
+            //.withInitialRegion(1);
         tutorial.addQuest(captureOne);
 
         // Kill 10 on Route 2

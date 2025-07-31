@@ -8,6 +8,7 @@ class QuestLine {
     curQuestObject: KnockoutComputed<any>;
     curQuestInitial: KnockoutObservable<number>;
     totalQuests: number;
+    region;
 
     autoBegin: KnockoutSubscription;
     private pausableStates = [GameConstants.GameState.town, GameConstants.GameState.fighting];
@@ -61,7 +62,7 @@ class QuestLine {
         });
     }
 
-    addQuest(quest: Quest) {
+    addQuest(quest: Quest): void {
         this.totalQuests++;
         quest.index = this.totalQuests;
         quest.inQuestLine = true;
@@ -176,6 +177,11 @@ class QuestLine {
         }
 
         return 'Pausing this quest line will remove it from your quest list and prevent any progress.<br /><br />It can be resumed from the current step at the Bulletin Board it was originally accepted.';
+    }
+
+    withStartRegion(startRegion) {
+        this.region = startRegion;
+        return this;
     }
 
     toJSON() {

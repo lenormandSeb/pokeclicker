@@ -34,6 +34,7 @@ abstract class Quest {
     optionalArgs?: QuestOptionalArgument;
     initialValue?: number;
     parentQuestLine?: QuestLine;
+    initialRegion?: number;
 
     constructor(amount: number, pointsReward: number) {
         this.amount = isNaN(amount) ? 0 : amount;
@@ -285,6 +286,11 @@ abstract class Quest {
         return this;
     }
 
+    withInitialRegion(initialRegion: number): Quest {
+        this.initialRegion = initialRegion;
+        return this;
+    }
+
     public asSubQuest(mainQuest: Quest) {
         this.mainQuest = mainQuest;
         this.autoComplete = true;
@@ -303,6 +309,18 @@ abstract class Quest {
         return `assets/images/npcs/${npcImageName}.png`;
     }
 
+    public getRegion() {
+        if (typeof(this.initialRegion) == 'undefined' && typeof(this.parentQuestLine.region == 'undefined')) {
+            return 0;
+        }
+
+        if (typeof(this.initialRegion) == 'undefined') {
+            return this.parentQuestLine.region;
+        }
+
+        return this.initialRegion;
+    }
+
     //#endregion
 
     toJSON(): Record<string, any> {
@@ -313,6 +331,7 @@ abstract class Quest {
             initial: this.initial(),
             claimed: this.claimed(),
             notified: this.notified,
+            initialRegion: this.initialRegion,
         };
     }
 
@@ -322,10 +341,12 @@ abstract class Quest {
             this.claimed(false);
             this.initial(null);
             this.notified = false;
+            this.initialRegion = 0;
         }
         this.index = json.hasOwnProperty('index') ? json.index : 0;
         this.claimed(json.hasOwnProperty('claimed') ? json.claimed : false);
         this.initial(json.hasOwnProperty('initial') ? json.initial : null);
         this.notified = json.hasOwnProperty('notified') ? json.notified : false;
+        this.initialRegion = json.hasOwnProperty('initialRegion') ? json.initialRegion : 0;
     }
 }
